@@ -1,0 +1,178 @@
+{% extends "Master/muban.html" %}
+{% block content %}
+
+<body>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">设备状态</h3>
+        </div>
+        <div class="panel-body">
+            <form action='/AddBasicInfo/' method="post">
+        <span>状态名:</span>{{ devicestatusform.devicestatus }}
+        <input class="btn btn-success" type="submit" value="添加"><span>{{ devicestatusstatus }}</span>
+    </form>
+        </div>
+        <table style="text-align: center;width: 80%" class="table table-bordered">
+            <tr>
+                <td>ID</td>
+                <td>名</td>
+            </tr>
+            {% for item in devicestatuslist %}
+                <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">设备分组</h3>
+        </div>
+        <div class="panel-body">
+            <form action='/AddBasicInfo/' method="post">
+                <span>设备分组:</span>{{ devicegroupform.devicegroup }}
+                <input class="btn btn-success" type="submit" value="添加"><span>{{ devicegroupstatus }}</span>
+            </form>
+        </div>
+                <table style="text-align: center;width: 80%" class="table table-bordered">
+            <tr>
+                <td>ID</td>
+                <td>名</td>
+            </tr>
+            {% for item in devicegrouplist %}
+                <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">设备区域</h3>
+        </div>
+        <div class="panel-body">
+            <form action='/AddBasicInfo/' method="post">
+                <span>设备区域:</span>{{ deviceregionform.deviceregion }}
+                <input class="btn btn-success" type="submit" value="添加"><span>{{ deviceregionstatus }}</span>
+            </form>
+        </div>
+                <table style="text-align: center;width: 80%" class="table table-bordered">
+            <tr>
+                <td>ID</td>
+                <td>名</td>
+            </tr>
+            {% for item in deviceregionlist %}
+                <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+        <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">摄像头方向</h3>
+        </div>
+        <div class="panel-body">
+            <form action='/AddBasicInfo/' method="post">
+                <span>摄像头方向:</span>{{ cameradirectionform.cameradirection }}
+                <input class="btn btn-success" class="btn btn-success" type="submit" value="添加"><span>{{ videodirectionstatus }}</span>
+            </form>
+        </div>
+                    <table style="text-align: center;width: 80%" class="table table-bordered">
+            <tr>
+                <td>ID</td>
+                <td>名</td>
+            </tr>
+            {% for item in cameradirectionlist %}
+                <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">摄像头分类</h3>
+        </div>
+        <div class="panel-body">
+            <form action='/AddBasicInfo/' method="post">
+                <span>摄像头分类:</span>{{ cameratypeform.cameratype }}
+                <input class="btn btn-success" type="submit" value="添加"><span>{{ cameratypestatus }}</span>
+            </form>
+        </div>
+                <table style="text-align: center;width: 80%" class="table table-bordered">
+            <tr>
+                <td>ID</td>
+                <td>名</td>
+            </tr>
+            {% for item in cameratypelist %}
+                <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">设备品牌</h3>
+        </div>
+        <div class="panel-body">
+            <form action='/AddBasicInfo/' method="post">
+                <span>设备品牌:</span>{{ devicebrandform.devicebrand }}
+                <input class="btn btn-success" type="submit" value="添加"><span>{{ devicebrandstatus }}</span>
+            </form>
+        </div>
+                <table style="text-align: center;width: 80%" class="table table-bordered">
+            <tr>
+                <td>ID</td>
+                <td>名</td>
+            </tr>
+            {% for item in devicebrandlist %}
+                <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+        <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">设备型号</h3>
+        </div>
+        <div class="panel-body">
+            <form action='/AddBasicInfo/' method="post">
+                品牌:<select name="devicebrandid">
+                    {% for id in devicebrandid %}
+                        <option id="devicebrandid" name="devicebrandid" value="{{ id.id }}">{{ id.name }}</option>
+                    {% endfor %}
+                </select>
+                <span>设备型号:</span>{{ devicetypeform.devicetype }}
+                <input class="btn btn-success" type="submit" value="添加"><span>{{ devicetypestatus }}</span>
+            </form>
+        </div>
+                <table style="text-align: center;width: 80%" class="table table-bordered">
+            <tr>
+                <td>ID</td>
+                <td>brand</td>
+                <td>type</td>
+            </tr>
+            {% for item in devicetypelist %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.brandid.name }}</td>
+                    <td>{{ item.name}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "Master/muban.html" %}
+
+{% block content %}
+<body >
+{% for camerainfo in cameradevice_ID %}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+            <h3 class="panel-title">修改设备信息</h3>
+        </div>
+        <div class="panel-body">
+            <form action='/UpdateCameraDevice/{{ camerainfo.id }}/' method="post">
+                <span class="label label-info">设备ID:</span><input id="pid" name="pid" value="{{ camerainfo.pid }}">
+                <span class="label label-info">名称:</span><input id="name" name="name" value="{{ camerainfo.name }}">
+                </br>
+                <span  class="label label-info">分组:</span><select name="group">
+                    <option id="group" name="group" value="{{ camerainfo.groupid_id }}">{{ camerainfo.groupid.name }}</option>
+                    {% for g in grouplist %}
+                        <option id="group" name="group" value="{{ g.id }}">{{ g.name }}</option>
+                    {% endfor %}
+                </select>
+                <span class="label label-info">区域:</span><select name="region">
+                        <option id="region" name="region" value="{{ camerainfo.regionid_id }}">{{ camerainfo.regionid.name }}</option>
+                        {% for item in deviceregion_item %}
+                            <option id="region" name="region" value="{{ item.id }}">{{ item.name }}</option>
+                        {% endfor %}
+                    </select>
+                <span class="label label-info">方向:</span><select name="direction">
+                        <option id="direction" name="direction" value="{{ camerainfo.directionid_id }}">{{ camerainfo.directionid.name }}</option>
+                        {% for item in cameradirection_item %}
+                            <option id="direction" name="direction" value="{{ item.id }}">{{ item.name }}</option>
+                        {% endfor %}
+                    </select>
+                <span class="label label-info">分类:</span>
+                <select name="vtype">
+                <option id="ctype" name="ctype" value="{{ camerainfo.ctypeid_id }}">{{ camerainfo.ctypeid.name }}</option>
+                    {% for item in cameratype_item %}
+                        <option id="vtype" name="vtype" value="{{ item.id }}">{{ item.name }}</option>
+                    {% endfor %}
+                </select>
+
+                    <span class="label label-info">品牌:</span><select name="brand">
+                        <option id="devicebrand" name="devicebrand" value="{{ camerainfo.brandid_id }}">{{ camerainfo.brandid.name }}</option>
+                        {% for item in devicebrand_item %}
+                            <option id="devicebrand" name="devicebrand" value="{{ item.id }}">{{ item.name }}</option>
+                        {% endfor %}
+                    </select>
+                <span class="label label-info">型号:</span>
+                <select name="dtype">
+                <option id="id_brand" name="brand" value="{{ camerainfo.dtypeid_id }}">{{ camerainfo.dtypeid.name }}</option>
+                    {% for item in devicetype_item %}
+                        <option id="id_brand" name="brand" value="{{ item.id }}">{{ item.name }}</option>
+                    {% endfor %}
+                </select>
+                <br><br>
+                <span class="label label-info">IP:</span><input id="id_ip" name="ip" type="text" value="{{ camerainfo.ip }}">
+                <span class="label label-info">帐号:</span><input id="id_username" name="username" type="text" value="{{ camerainfo.username }}">
+                <span class="label label-info">密码:</span><input id="id_password" name="password" type="text" value="{{ camerainfo.password }}">
+                <span class="label label-info">经度:</span><input id="id_gpslon" name="gpslon" type="text" value="{{ camerainfo.gpslon }}">
+                <span class="label label-info">纬度:</span><input id="id_gpswei" name="gpswei" type="text" value="{{ camerainfo.gpswei }}">
+                <br/>
+                <input class="btn btn-success" type="submit" value="修改"><span>{{ updatestatus }}</span>
+
+            </form>
+        </div>
+    </div>
+{% endfor %}
+</body>
+
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}

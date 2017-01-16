@@ -1,0 +1,101 @@
+{% extends "Master/muban.html" %}
+
+{% block content %}
+
+<div>
+    <div>
+        <div>
+            <div class="page-form">
+                <form action="/applycertificate/" method="post" class="smart-green">
+                    <h1>数字证书在线申请</h1>
+                    <div class="radioclass">
+                        <span>申请类型</span>{{ form.ApplyType }}
+                    </div>
+                    <hr>
+                    <label>
+                        <div>{{ form.Workgroup }}</div>
+                        <div id="addAddress" >
+                            <div class="address_input">
+                                <input class="address_input1" type="" placeholder="请选择" id="shengshi" onClick="getProvinceBuy()" readonly="readonly">
+                            </div>
+                        </div>
+                        <div >姓名 :<input style="width: 80px;" id="name" type="text" name="name" placeholder="" /></div>
+                        <div ><span>性别 :</span>
+                        <select class="select">
+                            <option value="none" selected="selected">请选择</option>
+                            <option value="1">男</option>
+                            <option value="0">女</option>
+                        </select></div>
+                        <div class="phone">电话 :<input id="name" type="text" name="name" placeholder="" /></div></br>
+                        <div class="sfz">身份证 :<input id="name" type="text" name="name" maxlength="18" /></div>
+                        <div>电子邮件 :<input id="" type="email" name=""></div>
+                        <div>地址 :<input id="" type="text" name=""></div>
+                        <hr/>
+                    </label>
+                    <label>
+                        <div><span>任职 :</span>
+                        <select class="select">
+                            <option value="none" selected="selected">请选择</option>
+                            <option value="科员">正职</option>
+                            <option value="科员">副职</option>
+                            <option value="科员">其它</option>
+
+                        </select></div>
+                        <div><span>职级 :</span>
+                        <select class="select">
+                            <option value="none" selected="selected">请选择</option>
+                            <option value="科员">科员</option>
+                            <option value="科员">正科</option>
+                            <option value="科员">副科</option>
+                        </select></div>
+                        <div><span>工作岗位 :</span>
+                        <select class="select">
+                            <option value="none" selected="selected">请选择</option>
+                            <option value="科员">科员</option>
+                            <option value="科员">正科</option>
+                            <option value="科员">副科</option>
+                        </select></div>
+                        <div><span>警种 :</span>
+                        <select class="select">
+                            <option value="none" selected="selected">请选择</option>
+                            <option value="科员">国保</option>
+                            <option value="科员">经侦</option>
+                            <option value="科员">治安</option>
+                            <option value="科员">边防</option>
+                            <option value="科员">刑侦</option>
+                            <option value="科员">出入境</option>
+                            <option value="科员">消防</option>
+                            <option value="科员">网警</option>
+                            <option value="科员">行动技术</option>
+                            <option value="科员">监所管理</option>
+                            <option value="科员">交通管理</option>
+                            <option value="科员">法制</option>
+                            <option value="科员">装备财务</option>
+                            <option value="科员">禁毒</option>
+                            <option value="科员">信息通信</option>
+                            <option value="科员">办公室</option>
+                            <option value="科员">纪委</option>
+                            <option value="科员">督察</option>
+                            <option value="科员">政工</option>
+                            <option value="科员">人事</option>
+                            <option value="科员">机关党委</option>
+                            <option value="科员">派出所</option>
+
+                        </select></div><br>
+                        <div>申请时间 :<input id="" type="datetime" name=""  /> </div>
+                    </label>
+                        <hr/>
+
+
+                        <span>&nbsp;</span>
+                        <div><input  type="submit" class="button" value="提交" /></div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "Master/muban.html" %}
+{% block css %}
+    <meta http-equiv="refresh"content="30">
+{% endblock %}
+{% block content %}
+
+<div class="container" style="min-height:500px">
+<!--摄像头网列表-->
+    <div class="panel panel-primary">
+        <div class="panel-heading" >
+            <h3 class="panel-title">摄像头状态</h3>
+        </div>
+        <div class="panel-body" style="background:#1E4F86;">
+        {% for bad in badcameralist %}
+            <a href="../CameraDevice/{{ bad.id }}/" target="_blank"><button type="button" class="btn btn-default" title="IP:{{ bad.ip }}">
+                <span style="color: rgb(255, 0, 0); font-size: 28px;" class="glyphicon glyphicon-facetime-video"  ></span>
+                <br>
+                <span style="color: rgb(255, 0, 0)">{{ bad.name }} </span>
+            </button></a>
+            <td></td>
+        {% endfor %}
+        {% for good in goodcameralist %}
+            <a href="../CameraDevice/{{ good.id }}/" target="_blank"><button type="button" class="btn btn-default"  title="IP:{{ good.ip }}">
+                <span style="color: rgb(0, 174, 0); font-size: 28px;" class="glyphicon glyphicon-facetime-video" ></span>
+                <br>
+                <span style="color:rgb(0,174,0)">{{ good.name }} </span>
+            </button></a>
+        {% endfor %}
+        </div>
+    </div>
+<!--服务器列表-->
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">存储设备状态</h3>
+        </div>
+        <div class="panel-body" style="background:#1E4F86;">
+        {% for bad in badserver %}
+            <a href="../ServerHost/{{ bad.id }}/" target="_blank"><button type="button" class="btn btn-default" title="IP:{{ bad.hostIP }}">
+                <span style="color: rgb(255, 0, 0); font-size: 28px;" class="glyphicon glyphicon-off"  ></span>
+                <br>
+                <span style="color: rgb(255, 0, 0)">{{ bad.hostName }} </span>
+            </button></a>
+            <td></td>
+        {% endfor %}
+        {% for good in goodserver %}
+            <a href="../ServerHost/{{ good.id }}/" target="_blank"><button type="button" class="btn btn-default"  title="IP:{{ good.hostIP }}">
+                <span style="color: rgb(0, 174, 0); font-size: 28px;" class="glyphicon glyphicon-off" ></span>
+                <br>
+                <span style="color:rgb(0,174,0)">{{ good.hostName }} </span>
+            </button></a>
+        {% endfor %}
+        </div>
+    </div>
+<!--网络设备-->
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">网络设备状态</h3>
+        </div>
+        <div class="panel-body" style="background:#1E4F86;">
+            {% for bad in baddevice %}
+                <button type="button" class="btn btn-default" title="IP:{{ bad.hostIP }}">
+                    <span style="color: rgb(255, 0, 0); font-size: 28px;" class="glyphicon glyphicon-off"  ></span>
+                    <br>
+                    <span style="color: rgb(255, 0, 0)">{{ bad.hostName }} </span>
+                </button>
+            {% endfor %}
+            {% for good in gooddevice %}
+                <button type="button" class="btn btn-default"  title="IP:{{ good.hostIP }}">
+                    <span style="color: rgb(0, 174, 0); font-size: 28px;" class="glyphicon glyphicon-off" ></span>
+                    <br>
+                    <span style="color:rgb(0,174,0)">{{ good.hostName }} </span>
+                </button>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div>
+
+    </div>
+</div>
+{% endblock %}

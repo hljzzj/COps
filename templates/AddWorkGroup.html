@@ -1,0 +1,28 @@
+{% extends "Master/muban.html" %}
+
+{% block content %}
+<body>
+    <form action='/AddWorkGroup/' method="post">
+        <span>部门名称:</span>{{ form.name }}
+        <br/>
+        <input type="submit" value="添加"><span>{{ status }}</span>
+    </form>
+    <table style="text-align: center;width: 80%" class="table table-bordered">
+            <tr>
+                <td>ID</td>
+                <td>部门名称</td>
+            </tr>
+            {% for item in workgrouplist %}
+                <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+
+
+
+</body>
+{% endblock %}
+

@@ -1,0 +1,14 @@
+{% extends "Master/muban.html" %}
+
+{% block content %}
+<body>
+    <form action='/AddServerHost/' method="post">
+        <span>主机名:</span>{{ form.name }}
+        <br/>
+        <span>IP地址:</span>{{ form.ip }}
+        <br/>
+        <input type="submit" value="添加"><span>{{ status }}</span>
+    </form>
+</body>
+{% endblock %}
+

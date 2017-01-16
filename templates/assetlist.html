@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <h1>{{ data }}</h1>
+    <table border="1">
+        {% for item in data %}
+            <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.hostname }}</td>
+            <td>{{ item.create_date|date:"Y-m-d H:i:s" }}</td>
+            <td>{{ item.update_date|date:"Y-m-d H:i:s" }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>

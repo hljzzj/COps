@@ -1,0 +1,15 @@
+2016-12-04 22:01:00,075 [Thread-2:1108] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddCamera/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 35, in AddCamera
+    if id:
+UnboundLocalError: local variable 'id' referenced before assignment
+2016-12-04 22:04:42,500 [Thread-5:5640] [django.request:170] [base:get_response] [WARNING]- Not Found: /AddCamera/2
+2016-12-04 22:04:46,131 [Thread-6:2784] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddCamera/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 35, in AddCamera
+    if id:
+UnboundLocalError: local variable 'id' referenced before assignment

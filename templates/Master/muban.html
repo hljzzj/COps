@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>儋州公安通信运维综合管理平台</title>
+    <link rel="stylesheet" href="/static/CSS/bootstrap.css">
+    <!--[if lte IE 6]>
+    <link rel="stylesheet" type="text/css" href="/static/CSS/bootstrap-ie6.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/CSS/ie.css">
+    <![endif]-->
+    <script src="/static/JS/jquery-3.0.0.js"></script>
+    <script src="/static/JS/bootstrap.js"></script>
+    {% block css %}
+    {% endblock %}
+
+</head>
+<body style="background:#1E4F86;">
+
+
+    <!--[if lte IE 6]>
+    <!-- bsie js 补丁只在IE6中才执行 -->
+    <script type="text/javascript" src="/static/JS/bootstrap-ie.js"></script>
+    <![endif]-->
+    {% block javascript %}
+    {% endblock %}
+
+<div style="margin-top: 3px"></div>
+<nav class="navbar navbar-inverse">
+        <div class="container">
+          <div class="navbar-header">
+            <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">监控运维平台</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="/">概览</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">维护 <span class="caret"></span></a>
+                <ul role="menu" class="dropdown-menu">
+                    <li><a href="/AddCameraDevice/">添加摄像头</a></li>
+                    <li><a href="/AddServerHost/">添加主机</a></li>
+                    <li><a href="/AddBasicInfo/">添加基础信息</a></li>
+                    <li><a href="/AddWorkGroup/">添加工作组</a></li>
+                    <li><a href="/UpLoad/">导入设备</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+<!--菜单结束-->
+    <div style="">
+    <!--内容开始-->
+        {% block content %}
+
+
+        {% endblock %}
+    </div>
+<!--底部内容开始-->
+    <div>公用底部内容</div>
+
+</body>
+</html>

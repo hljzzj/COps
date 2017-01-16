@@ -1,0 +1,42 @@
+{% extends "Master/muban.html" %}
+
+{% block content %}
+<body>
+    <form action='/AddThreeNetwork/' method="post">
+        部门:<select name="workgroup">
+            {% for x in workgrouplist %}
+                <option id="workgroup" name="workgroup" value="{{ x.id }}">{{ x.name }}</option>
+            {% endfor %}
+        </select>
+
+	    <span>Vlan:</span>{{ form.vlan }}
+	    <span>网关:</span>{{ form.gateway }}
+	    <span>子网掩码:</span>{{ form.netmask }}
+
+        <input type="submit" value="添加"><span>{{ status }}</span>
+    </form>
+    <table style="text-align: center;width: 80%" class="table table-bordered">
+            <tr>
+                <td>ID</td>
+                <td>部门</td>
+		<td>Vlan</td>
+		<td>网关</td>
+		<td>子网掩码</td>
+            </tr>
+            {% for item in threenetworklist %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td><a href="../ThreeNetwork/{{ item.id }}/">{{ item.workgroupID.name }}</a></td>
+                    <td>{{ item.vlan }}</td>
+		            <td>{{ item.gateway }}</td>
+		            <td>{{ item.netmask }}</td>
+                    <td>{{ item.statusID.status }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+
+
+</body>
+{% endblock %}
+

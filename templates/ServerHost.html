@@ -1,0 +1,26 @@
+{% extends "Master/muban.html" %}
+
+{% block content %}
+<body >
+    <div>
+        <table style="text-align: center;width: 80%" class="table table-bordered">
+            <caption>
+                {% for item in serverhostnamedata %}
+                {{ item.hostName }}:{{ item.hostIP }}
+                {% endfor %}
+            </caption>
+            <tr>
+                <td>服务器状态</td>
+                <td>最后存活时间</td>
+            </tr>
+            {% for item in serverhostdata %}
+                <tr>
+                <td>{{ item.status.status}}</td>
+                <td>{{ item.updateTime|date:"Y-m-d H:i:s" }}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+</body>
+{% endblock %}

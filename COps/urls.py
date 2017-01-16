@@ -1,0 +1,30 @@
+"""VOAM URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/1.8/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
+Including another URLconf
+    1. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
+"""
+from django.conf.urls import include, url
+from django.contrib import admin
+from website.views import *
+
+
+urlpatterns = [
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^$',Index),
+    url(r'^AddCamera/$',AddCamera),
+    url(r'^AddCameraDevice/$',AddCameraDevice),
+    url(r'^AddBasicInfo/$',AddBasicInfo),
+    url(r'^UpdateCameraDevice/(?P<cameraID>\d*)/$',UpdateCameraDevice),
+    url(r'^DelCameraDevice/(?P<cameraID>\d*)/$',DelCameraDevice),
+    url(r'^CameraDevice/(?P<cameraID>\d*)/$',CameraDeviceID),
+    url(r'^UpLoad/$',UpLoad),
+]
