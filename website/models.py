@@ -43,6 +43,7 @@ class DeviceType(models.Model):
     name = models.CharField(max_length=32,verbose_name='设备型号')
     def __unicode__(self):
         return self.name
+
 class Telecom(models.Model):
     name = models.CharField(max_length=32,verbose_name='运营商')
     def __unicode__(self):
@@ -101,3 +102,10 @@ class CameraDevice(models.Model):
     powersupplyid = models.ForeignKey(PowerSupply,verbose_name='供电方式',null=True)
     powerid = models.ForeignKey(PowerID,verbose_name='供电标识',null=True)
 
+class ImportFile(models.Model):
+    file = models.FileField(upload_to='File')
+    name = models.CharField(max_length=50,verbose_name=u'文件名')
+    class Meta:
+        ordering = ['name']
+    def __str__(self):
+        return self.name

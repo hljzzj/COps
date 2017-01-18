@@ -13,3 +13,309 @@ Traceback (most recent call last):
   File "E:\Project\Python\COps\website\views.py", line 35, in AddCamera
     if id:
 UnboundLocalError: local variable 'id' referenced before assignment
+2017-01-18 10:31:47,486 [Thread-4:11660] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-01-18 11:45:07,726 [Thread-6:5004] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /admin/website/cameradevice/add/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 164, in get_response
+    response = response.render()
+  File "D:\Python27\lib\site-packages\django\template\response.py", line 158, in render
+    self.content = self.rendered_content
+  File "D:\Python27\lib\site-packages\django\template\response.py", line 135, in rendered_content
+    content = template.render(context, self._request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 211, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 329, in render
+    return nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 329, in render
+    return nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\contrib\admin\widgets.py", line 292, in render
+    'widget': self.widget.render(name, value, *args, **kwargs),
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1103, in __iter__
+    yield self.choice(obj)
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1110, in choice
+    return (self.field.prepare_value(obj), self.field.label_from_instance(obj))
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1181, in label_from_instance
+    return smart_text(obj)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 56, in smart_text
+    return force_text(s, encoding, strings_only, errors)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+TypeError: coercing to Unicode: need string or buffer, tuple found
+2017-01-18 16:26:02,841 [Thread-2:12108] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-01-18 16:26:04,911 [Thread-4:9408] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-01-18 16:26:17,430 [Thread-7:8436] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /admin/website/cameradevice/add/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 164, in get_response
+    response = response.render()
+  File "D:\Python27\lib\site-packages\django\template\response.py", line 158, in render
+    self.content = self.rendered_content
+  File "D:\Python27\lib\site-packages\django\template\response.py", line 135, in rendered_content
+    content = template.render(context, self._request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 211, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 329, in render
+    return nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 329, in render
+    return nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\contrib\admin\widgets.py", line 292, in render
+    'widget': self.widget.render(name, value, *args, **kwargs),
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1103, in __iter__
+    yield self.choice(obj)
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1110, in choice
+    return (self.field.prepare_value(obj), self.field.label_from_instance(obj))
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1181, in label_from_instance
+    return smart_text(obj)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 56, in smart_text
+    return force_text(s, encoding, strings_only, errors)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+TypeError: coercing to Unicode: need string or buffer, tuple found
+2017-01-18 17:12:55,609 [Thread-23:9984] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /admin/website/cameradevice/add/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 164, in get_response
+    response = response.render()
+  File "D:\Python27\lib\site-packages\django\template\response.py", line 158, in render
+    self.content = self.rendered_content
+  File "D:\Python27\lib\site-packages\django\template\response.py", line 135, in rendered_content
+    content = template.render(context, self._request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 211, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 329, in render
+    return nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 329, in render
+    return nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\contrib\admin\widgets.py", line 292, in render
+    'widget': self.widget.render(name, value, *args, **kwargs),
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1103, in __iter__
+    yield self.choice(obj)
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1110, in choice
+    return (self.field.prepare_value(obj), self.field.label_from_instance(obj))
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1181, in label_from_instance
+    return smart_text(obj)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 56, in smart_text
+    return force_text(s, encoding, strings_only, errors)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+TypeError: coercing to Unicode: need string or buffer, tuple found
