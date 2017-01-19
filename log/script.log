@@ -319,3 +319,5 @@ Traceback (most recent call last):
   File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
     s = six.text_type(s)
 TypeError: coercing to Unicode: need string or buffer, tuple found
+2017-01-19 17:54:26,775 [Thread-2:10728] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-01-19 17:54:30,065 [Thread-4:10480] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
