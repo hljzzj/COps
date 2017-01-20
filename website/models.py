@@ -86,7 +86,7 @@ class CameraDevice(models.Model):
     regionid = models.ForeignKey(DeviceRegion,verbose_name='摄像头区域划分')
     ctypeid = models.ForeignKey(CameraType,verbose_name='摄像头类别')
     directionid = models.ForeignKey(CameraDirection,verbose_name='摄像头方向')
-    ip = models.GenericIPAddressField(protocol='ipv4',verbose_name='摄像机IP')
+    cameraip = models.GenericIPAddressField(protocol='ipv4',verbose_name='摄像机IP')
     username = models.CharField(max_length=50,verbose_name='摄像头帐号',null=True)
     password = models.CharField(max_length=50,verbose_name='摄像头密码',null=True)
     gpslon = models.CharField(max_length=18,verbose_name='经度',null=True)
@@ -109,3 +109,12 @@ class ImportFile(models.Model):
         ordering = ['name']
     def __str__(self):
         return self.name
+
+class DeviceTimeRecord(models.Model):
+    devideid = models.ForeignKey(CameraDevice,verbose_name='设备ID')
+    statusid = models.ForeignKey(DeviceStatus,verbose_name='状态ID')
+    updatetime = models.DateTimeField(auto_now=True,verbose_name='更新时间',null=True)
+class DeviceDayRecord(models.Model):
+    deviceid = models.ForeignKey(CameraDevice,verbose_name='设备ID')
+    statusid = models.ForeignKey(DeviceStatus, verbose_name='状态ID')
+    updatetime = models.DateTimeField(auto_now=True, verbose_name='更新时间', null=True)

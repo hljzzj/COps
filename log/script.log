@@ -321,3 +321,6 @@ Traceback (most recent call last):
 TypeError: coercing to Unicode: need string or buffer, tuple found
 2017-01-19 17:54:26,775 [Thread-2:10728] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
 2017-01-19 17:54:30,065 [Thread-4:10480] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-01-20 09:36:19,904 [Thread-24:572] [django.request:170] [base:get_response] [WARNING]- Not Found: /AddServerHost/
+2017-01-20 14:19:30,818 [Thread-2:7708] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-01-20 14:19:32,161 [Thread-4:10056] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico

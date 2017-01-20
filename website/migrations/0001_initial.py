@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('pid', models.CharField(max_length=32, null=True, verbose_name=b'\xe6\x91\x84\xe5\x83\x8f\xe5\xa4\xb4\xe7\xbc\x96\xe5\x8f\xb7')),
                 ('name', models.CharField(max_length=50, verbose_name=b'\xe6\x91\x84\xe5\x83\x8f\xe5\xa4\xb4\xe5\x90\x8d\xe7\xa7\xb0')),
-                ('ip', models.GenericIPAddressField(protocol=b'ipv4', verbose_name=b'\xe6\x91\x84\xe5\x83\x8f\xe6\x9c\xbaIP')),
+                ('cameraip', models.GenericIPAddressField(protocol=b'ipv4', verbose_name=b'\xe6\x91\x84\xe5\x83\x8f\xe6\x9c\xbaIP')),
                 ('username', models.CharField(max_length=50, null=True, verbose_name=b'\xe6\x91\x84\xe5\x83\x8f\xe5\xa4\xb4\xe5\xb8\x90\xe5\x8f\xb7')),
                 ('password', models.CharField(max_length=50, null=True, verbose_name=b'\xe6\x91\x84\xe5\x83\x8f\xe5\xa4\xb4\xe5\xaf\x86\xe7\xa0\x81')),
                 ('gpslon', models.CharField(max_length=18, null=True, verbose_name=b'\xe7\xbb\x8f\xe5\xba\xa6')),
@@ -81,6 +81,17 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=32, verbose_name=b'\xe8\xae\xbe\xe5\xa4\x87\xe5\x9e\x8b\xe5\x8f\xb7')),
                 ('brandid', models.ForeignKey(verbose_name=b'\xe5\x85\xb3\xe8\x81\x94\xe8\xae\xbe\xe5\xa4\x87\xe5\x93\x81\xe7\x89\x8cID', to='website.DeviceBrand')),
             ],
+        ),
+        migrations.CreateModel(
+            name='ImportFile',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('file', models.FileField(upload_to=b'File')),
+                ('name', models.CharField(max_length=50, verbose_name='\u6587\u4ef6\u540d')),
+            ],
+            options={
+                'ordering': ['name'],
+            },
         ),
         migrations.CreateModel(
             name='NetworkDevice',
