@@ -11,7 +11,7 @@
             <h3 class="panel-title">摄像头状态</h3>
         </div>
         <div class="panel-body" style="background:#1E4F86;">
-        {% for bad in badcameralist %}
+        {% for bad in bad_cameralist %}
             <a href="../CameraDevice/{{ bad.id }}/" target="_blank"><button type="button" class="btn btn-default" title="IP:{{ bad.ip }}">
                 <span style="color: rgb(255, 0, 0); font-size: 28px;" class="glyphicon glyphicon-facetime-video"  ></span>
                 <br>

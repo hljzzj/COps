@@ -14,9 +14,16 @@ from website.models import *
 from django.db.models import Q
 
 def Index(request):
-    good_cameralist = CameraDevice.objects.filter(statusid=1)
-    bad_cameralist = CameraDevice.objects.filter(statusid=2)
-    return render_to_response('index.html',{'goodcameralist':good_cameralist,'badcameralist':bad_cameralist})
+    #good_cameralist = CameraDevice.objects.filter(statusid_id=1)
+    #bad_cameralist = CameraDevice.objects.filter(statusid_id=2)
+    cameranum = CameraDevice.objects.all().count()
+    good = CameraDevice.objects.filter(statusid_id=1).count()
+    bad = CameraDevice.objects.filter(statusid_id=2).count()
+    return render_to_response('index.html',{'good':good,'bad':bad,'cameranum':cameranum})
+
+def CameraBadList(request):
+    bad_cameralist = CameraDevice.objects.filter(statusid_id=2)
+    return render_to_response('CameraBadList.html',{'bad_cameralist':bad_cameralist})
 
 def AddCamera(request):
     assert isinstance(request,HttpRequest)

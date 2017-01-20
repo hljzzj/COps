@@ -324,3 +324,74 @@ TypeError: coercing to Unicode: need string or buffer, tuple found
 2017-01-20 09:36:19,904 [Thread-24:572] [django.request:170] [base:get_response] [WARNING]- Not Found: /AddServerHost/
 2017-01-20 14:19:30,818 [Thread-2:7708] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
 2017-01-20 14:19:32,161 [Thread-4:10056] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-01-20 15:02:59,994 [Thread-3:140400994244352] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-01-20 15:15:57,677 [Thread-2:140221184624384] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 119, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 365, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 401, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 395, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/home/zzj/PycharmProjects/COps/COps/urls.py", line 17, in <module>
+    from website.views import *
+  File "/home/zzj/PycharmProjects/COps/website/views.py", line 19
+    good = CameraDevice.objects.filter(statusid=1).
+                                                  ^
+SyntaxError: invalid syntax
+2017-01-20 15:46:07,268 [Thread-7:139781669218048] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /DelCameraDevice//
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zzj/PycharmProjects/COps/website/views.py", line 479, in DelCameraDevice
+    CameraDevice.objects.filter(id=cameraID).delete()
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 127, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 679, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 697, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/query.py", line 1310, in add_q
+    clause, require_inner = self._add_q(where_part, self.used_aliases)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/query.py", line 1338, in _add_q
+    allow_joins=allow_joins, split_subq=split_subq,
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/query.py", line 1209, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/query.py", line 1102, in build_lookup
+    return final_lookup(lhs, rhs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/lookups.py", line 105, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/lookups.py", line 143, in get_prep_lookup
+    return self.lhs.output_field.get_prep_lookup(self.lookup_name, self.rhs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py", line 727, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py", line 985, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+2017-01-20 15:47:22,001 [Thread-20:139781678659328] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 15:48:36,830 [Thread-2:140635281553152] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 15:48:41,021 [Thread-3:140635281553152] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 15:48:45,435 [Thread-9:140635273160448] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 15:49:06,378 [Thread-10:140635273160448] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 15:49:07,497 [Thread-11:140635273160448] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 15:49:08,190 [Thread-12:140635273160448] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 15:49:08,707 [Thread-13:140635273160448] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 15:49:31,794 [Thread-2:139922786744064] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 15:49:35,242 [Thread-3:139922786744064] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 15:49:35,832 [Thread-4:139922786744064] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 15:49:36,083 [Thread-5:139922786744064] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 15:49:36,270 [Thread-6:139922786744064] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 15:49:36,468 [Thread-7:139922786744064] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 15:49:36,668 [Thread-8:139922786744064] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 15:49:36,862 [Thread-9:139922786744064] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 15:49:37,086 [Thread-10:139922786744064] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 15:49:37,503 [Thread-11:139922786744064] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 15:49:38,001 [Thread-12:139922786744064] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 15:49:38,287 [Thread-13:139922786744064] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 15:49:38,532 [Thread-14:139922786744064] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 15:51:40,986 [Thread-2:140180372494080] [django.request:170] [base:get_response] [WARNING]- Not Found: /CameraBadlist/
+2017-01-20 16:03:58,403 [Thread-119:140023681652480] [django.request:170] [base:get_response] [WARNING]- Not Found: /AddWorkGroup/

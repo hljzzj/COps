@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$',Index),
     url(r'^AddCamera/$',AddCamera),
+    url(r'^CameraBadList/$',CameraBadList),
     url(r'^AddCameraDevice/$',AddCameraDevice),
     url(r'^AddBasicInfo/$',AddBasicInfo),
     url(r'^UpdateCameraDevice/(?P<cameraID>\d*)/$',UpdateCameraDevice),
