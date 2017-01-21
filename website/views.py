@@ -537,7 +537,56 @@ def AddCameraDevice(request):
     else:
         return render_to_response('AddCameraDevice.html', {'form': addcameradevice,
                                                            'cameradevice_list':cameradevicelist})
-
+def AddServerDevice(request):
+    addcameradevice = AddCameraDeviceForm()
+    cameradevicelist = CameraDevice.objects.all()
+    # print cameradevicelist
+    # print addcameradevice
+    if request.method == 'POST':
+        form = AddCameraDeviceForm(request.POST)
+        if form.is_valid():
+            pid = request.POST.get('pid',None)
+            name = request.POST.get('name')
+            group = request.POST.get('group')
+            region = request.POST.get('region')
+            direction = request.POST.get('direction')
+            ctype = request.POST.get('ctype')
+            ip = request.POST.get('ip')
+            brand =request.POST.get('brand')
+            dtype = request.POST.get('dtype')
+            username = request.POST.get('username',None)
+            password = request.POST.get('password',None)
+            gpslon = request.POST.get('gpslon',None)
+            gpswei = request.POST.get('gpswei',None)
+            telecom = request.POST.get('telecom')
+            nvrdevice = request.POST.get('nvrdevice')
+            print pid,name,group,region,direction,ctype,ip,username,password,gpslon,gpswei,brand,dtype
+            result = CameraDevice.objects.filter(ip=ip).count()
+            result1 = CameraDevice.objects.filter(pid=pid).count()
+            if result == 0 and result1 == 0:
+                CameraDevice.objects.create(pid=pid,name=name,groupid_id=group,regionid_id=region,
+                                           directionid_id=direction,ctypeid_id=ctype,ip=ip,username=username,
+                                           password=password,gpslon=gpslon,gpswei=gpswei,brandid_id=brand,
+                                           dtypeid_id=dtype,telecomid_id=telecom,nvrdeviceid_id=nvrdevice)
+                return render_to_response('AddCameraDevice.html',{'form':addcameradevice,
+                                                                  'cameradevice_list':cameradevicelist,
+                                                                  'status':'添加成功'})
+            elif result != 0:
+                return render_to_response('AddCameraDevice.html', {'form': addcameradevice,
+                                                                   'cameradevice_list':cameradevicelist,
+                                                                   'status': 'IP已存在'})
+            else:
+                return render_to_response('AddCameraDevice.html',{'form':addcameradevice,
+                                                                  'cameradevice_list':cameradevicelist,
+                                                                  'status':'ID已存在'})
+        else:
+            print form
+            return render_to_response('AddCameraDevice.html', {'form': addcameradevice,
+                                                               'cameradevice_list':cameradevicelist,
+                                                               'status':'验证错误'})
+    else:
+        return render_to_response('AddCameraDevice.html', {'form': addcameradevice,
+                                                           'cameradevice_list':cameradevicelist})
 
 def UpLoad(request):
     if request.method == 'POST':

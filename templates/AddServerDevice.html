@@ -3,20 +3,7 @@
 {% block content %}
 
 <div class="container">
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">设备查询</h3>
-        </div>
-        <div class="panel-body">
-            <form action='/AddCameraDevice/' method="post" >
-                {% for forms in form %}
-                    {{ forms.label}}:{{ forms }}
-                    {{ forms.error }}
-                {% endfor %}
-                <input type="submit" value="查询" class="btn bt-sm btn-primary radius"><span>{{ status }}</span>
-            </form>
-        </div>
-    </div>
+
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">添加摄像头</h3>

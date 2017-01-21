@@ -5,40 +5,28 @@
 {% block content %}
 
 <div class="container" style="min-height:500px">
-<!--摄像头网列表-->
-    <div class="row">
 
-        <div class="panel panel-primary col-xs-2">
+    <div class="row">
+<!--摄像头网列表-->
+        <div class="panel panel-primary col-xs-3">
             <div class="panel-heading">
                 <h3 class="panel-title">摄像头状态</h3>
             </div>
             <div class="panel-body" style="background:#1E4F86;color: #000;" >
-                共有摄像头{{ cameranum }}个
+                共有摄像头{{ cameranum }}个<p>
                 <a class="btn bt-sm btn-success radius" type="button" href="" >正常{{ good }}</a>
                 <a class="btn bt-sm btn-danger radius" type="button" href="../CameraBadList/" target="_blank" >故障{{ bad }}</a>
             </div>
         </div>
 <!--服务器列表-->
-        <div class="panel panel-primary col-xs-2">
+        <div class="panel panel-primary col-xs-3">
             <div class="panel-heading">
-                <h3 class="panel-title">存储设备状态</h3>
+                <h3 class="panel-title">服务器状态</h3>
             </div>
-            <div class="panel-body" style="background:#1E4F86;">
-            {% for bad in badserver %}
-                <a href="../ServerHost/{{ bad.id }}/" target="_blank"><button type="button" class="btn btn-default" title="IP:{{ bad.hostIP }}">
-                    <span style="color: rgb(255, 0, 0); font-size: 28px;" class="glyphicon glyphicon-off"  ></span>
-                    <br>
-                    <span style="color: rgb(255, 0, 0)">{{ bad.hostName }} </span>
-                </button></a>
-                <td></td>
-            {% endfor %}
-            {% for good in goodserver %}
-                <a href="../ServerHost/{{ good.id }}/" target="_blank"><button type="button" class="btn btn-default"  title="IP:{{ good.hostIP }}">
-                    <span style="color: rgb(0, 174, 0); font-size: 28px;" class="glyphicon glyphicon-off" ></span>
-                    <br>
-                    <span style="color:rgb(0,174,0)">{{ good.hostName }} </span>
-                </button></a>
-            {% endfor %}
+            <div class="panel-body" style="background:#1E4F86;color: #000;" >
+                共有服务器{{ serverhostnum }}个<p>
+                <a class="btn bt-sm btn-success radius" type="button" href="" >正常{{ goodserverhost }}</a>
+                <a class="btn bt-sm btn-danger radius" type="button" href="../ServerHostBadList/" target="_blank" >故障{{ badserverhost }}</a>
             </div>
         </div>
 
@@ -64,28 +52,7 @@
                 {% endfor %}
             </div>
         </div>
-    <!--网络设备-->
-        <div class="panel panel-primary col-xs-2">
-            <div class="panel-heading">
-                <h3 class="panel-title">网络设备状态</h3>
-            </div>
-            <div class="panel-body" style="background:#1E4F86;">
-                {% for bad in baddevice %}
-                    <button type="button" class="btn btn-default" title="IP:{{ bad.hostIP }}">
-                        <span style="color: rgb(255, 0, 0); font-size: 28px;" class="glyphicon glyphicon-off"  ></span>
-                        <br>
-                        <span style="color: rgb(255, 0, 0)">{{ bad.hostName }} </span>
-                    </button>
-                {% endfor %}
-                {% for good in gooddevice %}
-                    <button type="button" class="btn btn-default"  title="IP:{{ good.hostIP }}">
-                        <span style="color: rgb(0, 174, 0); font-size: 28px;" class="glyphicon glyphicon-off" ></span>
-                        <br>
-                        <span style="color:rgb(0,174,0)">{{ good.hostName }} </span>
-                    </button>
-                {% endfor %}
-            </div>
-        </div>
+
     </div>
 </div>
 {% endblock %}

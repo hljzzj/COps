@@ -20,7 +20,7 @@ from website.views import *
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$',Index),
-    url(r'^AddCamera/$',AddCamera),
+    url(r'^AddServerDevice/$',AddServerDevice),
     url(r'^CameraBadList/$',CameraBadList),
     url(r'^AddCameraDevice/$',AddCameraDevice),
     url(r'^AddBasicInfo/$',AddBasicInfo),

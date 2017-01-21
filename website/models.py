@@ -49,14 +49,29 @@ class Telecom(models.Model):
     def __unicode__(self):
         return self.name
 
+class DiskCapacity(models.Model):
+    name = models.CharField(max_length=32,verbose_name='磁盘容量')
+    def __unicode__(self):
+        return self.name
 class NVRDevice(models.Model):
     name = models.CharField(max_length=32,verbose_name='录像机名称')
     ip = models.GenericIPAddressField(protocol='ipv4',verbose_name='录像机IP')
     username = models.CharField(max_length=32,verbose_name='录像机帐号')
     password = models.CharField(max_length=32,verbose_name='录像机密码')
+    diskcapacityid = models.ForeignKey(DiskCapacity,verbose_name='磁盘容量ID')
+    diskvolume = models.CharField(max_length=4,verbose_name='磁盘数量')
     def __unicode__(self):
         return self.name
-
+class ServerDevice(models.Model):
+    name = models.CharField(max_length=32,verbose_name='服务器名称')
+    ip = models.GenericIPAddressField(protocol='ipv4',verbose_name='服务器IP')
+    username = models.CharField(max_length=32,verbose_name='服务器帐号')
+    password = models.CharField(max_length=32,verbose_name='服务器密码')
+    cpu = models.CharField(max_length=32,verbose_name='CPU')
+    disk = models.CharField(max_length=32,verbose_name='磁盘')
+    memory = models.CharField(max_length=32,verbose_name='内存')
+    def __unicode__(self):
+        return self.name
 class PowerSupply(models.Model):
     name = models.CharField(max_length=32,verbose_name='供电方式')
     def __unicode__(self):
