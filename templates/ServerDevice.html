@@ -1,0 +1,51 @@
+{% extends "Master/muban.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div>
+        {% for item in device %}
+            <h1 style="text-align: center "><font color="336699">{{ item.name }}</font></span>设备信息<span style="color: {{ st }}; font-size: 38px;" class="glyphicon glyphicon-facetime-video" title="{{ sttext }}"></span></h1>
+        {% endfor %}
+    </div>
+    <div class="panel panel-success">
+        <div class="panel-heading">
+        <h3 class="panel-title" >设备详细信息</h3>
+        </div>
+        <div class="panel-body" style="font-size: 18px">
+            {% for item in device %}
+                IP地址：<a class="btn btn-primary" href="http://{{ item.serverip }}"  target="_blank">{{ item.serverip }}</a>
+                设备分组:<a class="btn btn-primary">{{ item.groupid.name }}</a>
+                品牌：<a class="btn btn-primary">{{ item.brandid.name }}</a>
+                型号：<a class="btn btn-primary">{{ item.dtype }}</a>
+                CPU：<a class="btn btn-primary">{{ item.cpu }}</a>
+                磁盘容量：<a class="btn btn-primary">{{ item.disk }}</a>
+                内存：<a class="btn btn-primary">{{ item.memory }}</a>
+
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="panel panel-success">
+        <div class="panel-heading">
+        <h3 class="panel-title" >运行图表</h3>
+        </div>
+        <div class="panel-body" style="font-size: 18px">
+            {% for item in device %}
+
+            {% endfor %}
+        </div>
+    </div>
+    <div class="panel panel-success">
+        <div class="panel-heading">
+        <h3 class="panel-title" >设备抓图</h3>
+        </div>
+        <div class="panel-body" style="font-size: 18px">
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

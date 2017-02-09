@@ -3,10 +3,21 @@
 from django import forms
 from django.forms import ModelForm
 from models import *
-class AddCameraForm(ModelForm):
-    class Meta:
-        model = CameraDevice
-        fields = '__all__'
+class AddServerDeviceForm(forms.Form):
+    pid = forms.CharField(required=False, label=u'编号')  # required=False允许为空
+    name = forms.CharField(label=u'名称')
+    group_list = DeviceGroup.objects.all()
+    # print group_list
+    group = forms.ModelChoiceField(queryset=DeviceGroup.objects.all(), required=True, label=u'分组')
+    brand = forms.ModelChoiceField(queryset=ServerDeviceBrand.objects.all(), label=u'品牌')
+    dtype = forms.CharField(label=u'型号')
+    serverip = forms.GenericIPAddressField(protocol='ipv4', label=u'IP')
+    username = forms.CharField(required=False, label=u'帐号', widget=forms.TextInput(attrs={'class': 'sp'}))
+    password = forms.CharField(required=False, label=u'密码')
+    cpu = forms.CharField(required=False, label=u'CPU')
+    disk = forms.CharField(required=False, label=u'磁盘')
+    memory = forms.CharField(required=False, label=u'内存')
+
 class AddCameraDeviceForm(forms.Form):
     pid = forms.CharField(required=False,label='编号') # required=False允许为空
     name = forms.CharField(label='名称')

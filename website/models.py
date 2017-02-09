@@ -44,6 +44,11 @@ class DeviceType(models.Model):
     def __unicode__(self):
         return self.name
 
+class ServerDeviceBrand(models.Model):
+    name = models.CharField(max_length=128, verbose_name='服务器品牌')
+    def __unicode__(self):
+        return self.name
+
 class Telecom(models.Model):
     name = models.CharField(max_length=32,verbose_name='运营商')
     def __unicode__(self):
@@ -53,25 +58,34 @@ class DiskCapacity(models.Model):
     name = models.CharField(max_length=32,verbose_name='磁盘容量')
     def __unicode__(self):
         return self.name
+
 class NVRDevice(models.Model):
     name = models.CharField(max_length=32,verbose_name='录像机名称')
     ip = models.GenericIPAddressField(protocol='ipv4',verbose_name='录像机IP')
     username = models.CharField(max_length=32,verbose_name='录像机帐号')
     password = models.CharField(max_length=32,verbose_name='录像机密码')
-    diskcapacityid = models.ForeignKey(DiskCapacity,verbose_name='磁盘容量ID')
-    diskvolume = models.CharField(max_length=4,verbose_name='磁盘数量')
+    # diskcapacityid = models.ForeignKey(DiskCapacity,verbose_name='磁盘容量ID')
+    #diskvolume = models.CharField(max_length=4,verbose_name='磁盘数量')
     def __unicode__(self):
         return self.name
 class ServerDevice(models.Model):
+    pid = models.CharField(max_length=32,verbose_name='服务器编号',null=True)
     name = models.CharField(max_length=32,verbose_name='服务器名称')
-    ip = models.GenericIPAddressField(protocol='ipv4',verbose_name='服务器IP')
+    groupid = models.ForeignKey(DeviceGroup,verbose_name='设备分组')
+    serverip = models.GenericIPAddressField(protocol='ipv4',verbose_name='服务器IP')
+    statusid = models.ForeignKey(DeviceStatus,verbose_name='设备状态',null=True)
     username = models.CharField(max_length=32,verbose_name='服务器帐号')
     password = models.CharField(max_length=32,verbose_name='服务器密码')
-    cpu = models.CharField(max_length=32,verbose_name='CPU')
-    disk = models.CharField(max_length=32,verbose_name='磁盘')
-    memory = models.CharField(max_length=32,verbose_name='内存')
-    def __unicode__(self):
-        return self.name
+    brandid = models.ForeignKey(ServerDeviceBrand, verbose_name='设备品牌')
+    dtype = models.CharField(max_length=128, verbose_name='设备型号')
+    cpu = models.CharField(max_length=32,verbose_name='CPU',null=True)
+    disk = models.CharField(max_length=32,verbose_name='磁盘',null=True)
+    memory = models.CharField(max_length=32,verbose_name='内存',null=True)
+    updatetime = models.DateTimeField(auto_now=True, verbose_name='主机更新时间', null=True)
+    addtime = models.DateTimeField(auto_now_add=True, verbose_name='主机添加时间', null=True)
+    notes = models.CharField(max_length=255,verbose_name='备注',null=True)
+
+
 class PowerSupply(models.Model):
     name = models.CharField(max_length=32,verbose_name='供电方式')
     def __unicode__(self):
@@ -88,17 +102,13 @@ class NetworkDevice(models.Model):
     username = models.CharField(max_length=32,verbose_name='网络设备帐号')
     password = models.CharField(max_length=32,verbose_name='网络设备密码')
 
-class ServerHostDevice(models.Model):
-    name = models.CharField(max_length=32,verbose_name='服务器名称')
-    ip = models.GenericIPAddressField(protocol='ipv4',verbose_name='服务器IP')
-    username = models.CharField(max_length=32,verbose_name='服务器帐号')
-    password = models.CharField(max_length=32,verbose_name='服务器密码')
+
 
 class CameraDevice(models.Model):
     pid = models.CharField(max_length=32,verbose_name='摄像头编号',null=True)
     name = models.CharField(max_length=50,verbose_name='摄像头名称')
     groupid = models.ForeignKey(DeviceGroup,verbose_name='摄像头分组')
-    regionid = models.ForeignKey(DeviceRegion,verbose_name='摄像头区域划分')
+    regionid = models.ForeignKey(DeviceRegion,verbose_name='摄像头区域划分',null=True)
     ctypeid = models.ForeignKey(CameraType,verbose_name='摄像头类别')
     directionid = models.ForeignKey(CameraDirection,verbose_name='摄像头方向')
     cameraip = models.GenericIPAddressField(protocol='ipv4',verbose_name='摄像机IP')
@@ -111,11 +121,11 @@ class CameraDevice(models.Model):
     brandid = models.ForeignKey(DeviceBrand, verbose_name='设备品牌')
     dtypeid = models.ForeignKey(DeviceType,verbose_name='设备型号')
     updatetime = models.DateTimeField(auto_now=True,verbose_name='主机更新时间',null=True)
-    addtime = models.DateTimeField(auto_now_add=True,verbose_name='主机添加时间')
+    addtime = models.DateTimeField(auto_now_add=True,verbose_name='主机添加时间',null=True)
     telecomid = models.ForeignKey(Telecom,verbose_name='运营商')
     nvrdeviceid = models.ForeignKey(NVRDevice,verbose_name='后台存储设备',null=True)
     powersupplyid = models.ForeignKey(PowerSupply,verbose_name='供电方式',null=True)
-    powerid = models.ForeignKey(PowerID,verbose_name='供电标识',null=True)
+    powerid = models.CharField(max_length=255,verbose_name='供电标识',null=True)
 
 class ImportFile(models.Model):
     file = models.FileField(upload_to='File')

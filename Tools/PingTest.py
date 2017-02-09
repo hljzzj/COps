@@ -8,8 +8,8 @@ import datetime,time
 
 def Success(ip):
     try:
-        #print "通：%s" % ip["hostIP"]
-        conn = mdb.connect('113.59.61.225', 'COps', 'Dzga@110', 'cops');
+        #print "通：%s" % ip["cameraip"]
+        conn = mdb.connect('127.0.0.1', 'COps', 'Dzga@110', 'COps');
         cur = conn.cursor(mdb.cursors.DictCursor)
         cur.execute("INSERT INTO website_devicetimerecord(devideid_id, statusid_id,updateTime ) VALUES ('%s',1,now())" % ip["id"])
         cur.execute("UPDATE website_cameradevice SET statusid_id = 1,updatetime = now() WHERE id = %s" % ip["id"])
@@ -21,8 +21,8 @@ def Success(ip):
 
 def Fail(ip):
     try:
-        #print "不通：%s" % ip["hostIP"]
-        conn = mdb.connect('113.59.61.225', 'COps', 'Dzga@110', 'cops');
+        #print "不通：%s" % ip["cameraip"]
+        conn = mdb.connect('127.0.0.1', 'COps', 'Dzga@110', 'COps');
         cur = conn.cursor(mdb.cursors.DictCursor)
         cur.execute("INSERT INTO website_devicetimerecord(devideid_id, statusid_id,updateTime ) VALUES ('%s',2,now())" % ip["id"])
         cur.execute("UPDATE website_cameradevice SET statusid_id = 2 WHERE id = %s" % ip["id"])
@@ -48,11 +48,11 @@ if __name__=='__main__':
     while True:
         queue = Queue.Queue()
         try:
-            conn = mdb.connect('113.59.61.225', 'COps', 'Dzga@110', 'cops');
+            conn = mdb.connect('127.0.0.1', 'COps', 'Dzga@110', 'COps');
             cur = conn.cursor(mdb.cursors.DictCursor)
             cur.execute("SELECT cameraip,id,statusid_id FROM website_cameradevice")
             rows = cur.fetchall()
-            print rows
+            #print rows
             cur.close()
         except:
             print "连接出错"
@@ -69,6 +69,4 @@ if __name__=='__main__':
         for th in threads:
             th.join()
         print "程序结束运行%s" % datetime.datetime.now()
-        time.sleep(3000)
-
-
+        time.sleep(3600)

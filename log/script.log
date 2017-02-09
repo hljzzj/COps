@@ -329,3 +329,1389 @@ TypeError: coercing to Unicode: need string or buffer, tuple found
 2017-01-21 19:56:06,467 [Thread-6:10532] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
 2017-01-21 23:42:30,584 [Thread-446:6404] [django.request:170] [base:get_response] [WARNING]- Not Found: /AddWorkGroup/
 2017-01-21 23:49:11,242 [Thread-540:6040] [django.request:170] [base:get_response] [WARNING]- Not Found: /ServerHostBadList/
+2017-01-24 12:13:12,953 [Thread-2:7380] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-01-24 12:13:14,437 [Thread-4:13036] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-01-24 12:13:18,532 [Thread-5:12964] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddCameraDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 539, in AddCameraDevice
+    'cameradevice_list':cameradevicelist})
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1102, in __iter__
+    for obj in self.queryset.iterator():
+  File "D:\Python27\lib\site-packages\django\db\models\query.py", line 238, in iterator
+    results = compiler.execute_sql()
+  File "D:\Python27\lib\site-packages\django\db\models\sql\compiler.py", line 829, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\Python27\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "D:\Python27\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "D:\Python27\lib\site-packages\django\db\utils.py", line 97, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "D:\Python27\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "D:\Python27\lib\site-packages\django\db\backends\mysql\base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "D:\Python27\lib\site-packages\MySQLdb\cursors.py", line 174, in execute
+    self.errorhandler(self, exc, value)
+  File "D:\Python27\lib\site-packages\MySQLdb\connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1054, "Unknown column 'website_nvrdevice.diskvolume' in 'field list'")
+2017-01-24 12:14:12,831 [Thread-6:476] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddCameraDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 539, in AddCameraDevice
+    'cameradevice_list':cameradevicelist})
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1102, in __iter__
+    for obj in self.queryset.iterator():
+  File "D:\Python27\lib\site-packages\django\db\models\query.py", line 238, in iterator
+    results = compiler.execute_sql()
+  File "D:\Python27\lib\site-packages\django\db\models\sql\compiler.py", line 829, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\Python27\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "D:\Python27\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "D:\Python27\lib\site-packages\django\db\utils.py", line 97, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "D:\Python27\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "D:\Python27\lib\site-packages\django\db\backends\mysql\base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "D:\Python27\lib\site-packages\MySQLdb\cursors.py", line 174, in execute
+    self.errorhandler(self, exc, value)
+  File "D:\Python27\lib\site-packages\MySQLdb\connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1054, "Unknown column 'website_nvrdevice.diskvolume' in 'field list'")
+2017-01-24 14:53:15,312 [Thread-2:2820] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-01-24 14:53:16,951 [Thread-4:9796] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-01-24 14:53:21,681 [Thread-5:7260] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddCameraDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 539, in AddCameraDevice
+    'cameradevice_list':cameradevicelist})
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1102, in __iter__
+    for obj in self.queryset.iterator():
+  File "D:\Python27\lib\site-packages\django\db\models\query.py", line 238, in iterator
+    results = compiler.execute_sql()
+  File "D:\Python27\lib\site-packages\django\db\models\sql\compiler.py", line 829, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\Python27\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "D:\Python27\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "D:\Python27\lib\site-packages\django\db\utils.py", line 97, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "D:\Python27\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "D:\Python27\lib\site-packages\django\db\backends\mysql\base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "D:\Python27\lib\site-packages\MySQLdb\cursors.py", line 174, in execute
+    self.errorhandler(self, exc, value)
+  File "D:\Python27\lib\site-packages\MySQLdb\connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1054, "Unknown column 'website_nvrdevice.diskvolume' in 'field list'")
+2017-01-24 15:35:09,114 [Thread-3:7280] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-02-05 21:21:34,513 [Thread-7:8944] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-02-05 21:34:51,171 [Thread-2:11156] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 42, in AddServerDevice
+    if id:
+UnboundLocalError: local variable 'id' referenced before assignment
+2017-02-07 11:45:28,977 [Thread-3:8488] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-02-07 11:45:31,331 [Thread-4:11372] [django.request:170] [base:get_response] [WARNING]- Not Found: /AddServerHost/
+2017-02-07 11:46:57,796 [Thread-15:14832] [django.request:170] [base:get_response] [WARNING]- Not Found: /AddServerHost/
+2017-02-07 11:47:05,976 [Thread-17:4868] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 42, in AddServerDevice
+    if id:
+UnboundLocalError: local variable 'id' referenced before assignment
+2017-02-07 11:58:14,990 [Thread-2:16348] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 73, in AddServerDevice
+    'cameradevice_list': serverdevicelist})
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1103, in __iter__
+    yield self.choice(obj)
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1110, in choice
+    return (self.field.prepare_value(obj), self.field.label_from_instance(obj))
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1181, in label_from_instance
+    return smart_text(obj)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 56, in smart_text
+    return force_text(s, encoding, strings_only, errors)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+TypeError: coercing to Unicode: need string or buffer, tuple found
+2017-02-07 12:01:38,051 [Thread-5:17972] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 73, in AddServerDevice
+    'cameradevice_list': serverdevicelist})
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1103, in __iter__
+    yield self.choice(obj)
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1110, in choice
+    return (self.field.prepare_value(obj), self.field.label_from_instance(obj))
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1181, in label_from_instance
+    return smart_text(obj)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 56, in smart_text
+    return force_text(s, encoding, strings_only, errors)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+TypeError: coercing to Unicode: need string or buffer, tuple found
+2017-02-07 12:01:42,871 [Thread-6:11400] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 73, in AddServerDevice
+    'cameradevice_list': serverdevicelist})
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1103, in __iter__
+    yield self.choice(obj)
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1110, in choice
+    return (self.field.prepare_value(obj), self.field.label_from_instance(obj))
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1181, in label_from_instance
+    return smart_text(obj)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 56, in smart_text
+    return force_text(s, encoding, strings_only, errors)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+TypeError: coercing to Unicode: need string or buffer, tuple found
+2017-02-07 12:04:24,618 [Thread-8:4668] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 73, in AddServerDevice
+    'cameradevice_list': serverdevicelist})
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1103, in __iter__
+    yield self.choice(obj)
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1110, in choice
+    return (self.field.prepare_value(obj), self.field.label_from_instance(obj))
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1181, in label_from_instance
+    return smart_text(obj)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 56, in smart_text
+    return force_text(s, encoding, strings_only, errors)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+TypeError: coercing to Unicode: need string or buffer, tuple found
+2017-02-07 12:04:27,619 [Thread-9:6624] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 73, in AddServerDevice
+    'cameradevice_list': serverdevicelist})
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1103, in __iter__
+    yield self.choice(obj)
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1110, in choice
+    return (self.field.prepare_value(obj), self.field.label_from_instance(obj))
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1181, in label_from_instance
+    return smart_text(obj)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 56, in smart_text
+    return force_text(s, encoding, strings_only, errors)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+TypeError: coercing to Unicode: need string or buffer, tuple found
+2017-02-07 14:51:33,401 [Thread-2:2744] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-02-07 14:51:34,499 [Thread-4:7740] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-02-07 14:51:46,979 [Thread-7:14160] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 73, in AddServerDevice
+    'cameradevice_list': serverdevicelist})
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1103, in __iter__
+    yield self.choice(obj)
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1110, in choice
+    return (self.field.prepare_value(obj), self.field.label_from_instance(obj))
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1181, in label_from_instance
+    return smart_text(obj)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 56, in smart_text
+    return force_text(s, encoding, strings_only, errors)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+TypeError: coercing to Unicode: need string or buffer, tuple found
+2017-02-07 14:58:06,881 [Thread-31:11412] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 73, in AddServerDevice
+    'cameradevice_list': serverdevicelist})
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1103, in __iter__
+    yield self.choice(obj)
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1110, in choice
+    return (self.field.prepare_value(obj), self.field.label_from_instance(obj))
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1181, in label_from_instance
+    return smart_text(obj)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 56, in smart_text
+    return force_text(s, encoding, strings_only, errors)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+TypeError: coercing to Unicode: need string or buffer, tuple found
+2017-02-07 15:00:45,796 [Thread-32:15092] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 73, in AddServerDevice
+    'cameradevice_list': serverdevicelist})
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1103, in __iter__
+    yield self.choice(obj)
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1110, in choice
+    return (self.field.prepare_value(obj), self.field.label_from_instance(obj))
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1181, in label_from_instance
+    return smart_text(obj)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 56, in smart_text
+    return force_text(s, encoding, strings_only, errors)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+TypeError: coercing to Unicode: need string or buffer, tuple found
+2017-02-07 15:03:37,691 [Thread-2:16892] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 73, in AddServerDevice
+    'serverdevice_list': serverdevicelist})
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1103, in __iter__
+    yield self.choice(obj)
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1110, in choice
+    return (self.field.prepare_value(obj), self.field.label_from_instance(obj))
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1181, in label_from_instance
+    return smart_text(obj)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 56, in smart_text
+    return force_text(s, encoding, strings_only, errors)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+TypeError: coercing to Unicode: need string or buffer, tuple found
+2017-02-07 15:09:06,704 [Thread-2:13296] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 29, in AddServerDevice
+    addserverdeviceform = AddServerDeviceForm()
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 313, in __init__
+    raise ValueError('ModelForm has no model class specified.')
+ValueError: ModelForm has no model class specified.
+2017-02-07 15:17:05,586 [Thread-2:12592] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 119, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 366, in resolve
+    for pattern in self.url_patterns:
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 402, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 396, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "D:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "E:\Project\Python\COps\COps\urls.py", line 17, in <module>
+    from website.views import *
+  File "E:\Project\Python\COps\website\views.py", line 11, in <module>
+    from website.forms import *
+  File "E:\Project\Python\COps\website\forms.py", line 6, in <module>
+    class AddServerDeviceForm(forms.Form):
+  File "E:\Project\Python\COps\website\forms.py", line 11, in AddServerDeviceForm
+    group = forms.ModelChoiceField(queryset=ServerGroup.objects.all(), required=True, label=u'鍒嗙粍')
+NameError: name 'ServerGroup' is not defined
+2017-02-07 15:17:27,180 [Thread-4:15576] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 119, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 366, in resolve
+    for pattern in self.url_patterns:
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 402, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 396, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "D:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "E:\Project\Python\COps\COps\urls.py", line 17, in <module>
+    from website.views import *
+  File "E:\Project\Python\COps\website\views.py", line 11, in <module>
+    from website.forms import *
+  File "E:\Project\Python\COps\website\forms.py", line 6, in <module>
+    class AddServerDeviceForm(forms.Form):
+  File "E:\Project\Python\COps\website\forms.py", line 12, in AddServerDeviceForm
+    brand = forms.ModelChoiceField(required=True, label=u'鍝佺墝')
+TypeError: __init__() takes at least 2 arguments (3 given)
+2017-02-07 15:17:30,609 [Thread-5:15920] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 119, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 366, in resolve
+    for pattern in self.url_patterns:
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 402, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 396, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "D:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "E:\Project\Python\COps\COps\urls.py", line 17, in <module>
+    from website.views import *
+  File "E:\Project\Python\COps\website\views.py", line 11, in <module>
+    from website.forms import *
+  File "E:\Project\Python\COps\website\forms.py", line 6, in <module>
+    class AddServerDeviceForm(forms.Form):
+  File "E:\Project\Python\COps\website\forms.py", line 12, in AddServerDeviceForm
+    brand = forms.ModelChoiceField(required=True, label=u'鍝佺墝')
+TypeError: __init__() takes at least 2 arguments (3 given)
+2017-02-07 15:17:32,984 [Thread-6:6896] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 119, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 366, in resolve
+    for pattern in self.url_patterns:
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 402, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 396, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "D:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "E:\Project\Python\COps\COps\urls.py", line 17, in <module>
+    from website.views import *
+  File "E:\Project\Python\COps\website\views.py", line 11, in <module>
+    from website.forms import *
+  File "E:\Project\Python\COps\website\forms.py", line 6, in <module>
+    class AddServerDeviceForm(forms.Form):
+  File "E:\Project\Python\COps\website\forms.py", line 12, in AddServerDeviceForm
+    brand = forms.ModelChoiceField(required=True, label=u'鍝佺墝')
+TypeError: __init__() takes at least 2 arguments (3 given)
+2017-02-07 15:17:37,453 [Thread-7:11376] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 119, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 366, in resolve
+    for pattern in self.url_patterns:
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 402, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 396, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "D:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "E:\Project\Python\COps\COps\urls.py", line 17, in <module>
+    from website.views import *
+  File "E:\Project\Python\COps\website\views.py", line 11, in <module>
+    from website.forms import *
+  File "E:\Project\Python\COps\website\forms.py", line 6, in <module>
+    class AddServerDeviceForm(forms.Form):
+  File "E:\Project\Python\COps\website\forms.py", line 12, in AddServerDeviceForm
+    brand = forms.ModelChoiceField(required=True, label=u'鍝佺墝')
+TypeError: __init__() takes at least 2 arguments (3 given)
+2017-02-07 15:19:29,769 [Thread-8:924] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 73, in AddServerDevice
+    'serverdevice_list': serverdevicelist})
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1102, in __iter__
+    for obj in self.queryset.iterator():
+AttributeError: type object 'ServerDeviceBrand' has no attribute 'iterator'
+2017-02-07 15:19:33,997 [Thread-9:16400] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 73, in AddServerDevice
+    'serverdevice_list': serverdevicelist})
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1102, in __iter__
+    for obj in self.queryset.iterator():
+AttributeError: type object 'ServerDeviceBrand' has no attribute 'iterator'
+2017-02-07 15:21:56,637 [Thread-2:16772] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 73, in AddServerDevice
+    'serverdevice_list': serverdevicelist})
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1102, in __iter__
+    for obj in self.queryset.iterator():
+AttributeError: type object 'ServerDeviceBrand' has no attribute 'iterator'
+2017-02-07 15:24:09,637 [Thread-3:7616] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 73, in AddServerDevice
+    'serverdevice_list': serverdevicelist})
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1102, in __iter__
+    for obj in self.queryset.iterator():
+AttributeError: type object 'ServerDeviceBrand' has no attribute 'iterator'
+2017-02-07 15:24:13,140 [Thread-2:8852] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 73, in AddServerDevice
+    'serverdevice_list': serverdevicelist})
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1102, in __iter__
+    for obj in self.queryset.iterator():
+AttributeError: type object 'ServerDeviceBrand' has no attribute 'iterator'
+2017-02-07 16:11:32,954 [Thread-3:11384] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 73, in AddServerDevice
+    'serverdevice_list': serverdevicelist})
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1102, in __iter__
+    for obj in self.queryset.iterator():
+AttributeError: type object 'ServerDeviceBrand' has no attribute 'iterator'
+2017-02-07 16:13:08,934 [Thread-2:15348] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 73, in AddServerDevice
+    'serverdevice_list': serverdevicelist})
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1102, in __iter__
+    for obj in self.queryset.iterator():
+AttributeError: type object 'ServerDeviceBrand' has no attribute 'iterator'
+2017-02-07 16:13:37,627 [Thread-4:14192] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 73, in AddServerDevice
+    'serverdevice_list': serverdevicelist})
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 143, in __str__
+    return self.as_table()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 284, in as_table
+    errors_on_separate_row=False)
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 241, in _html_output
+    'field': six.text_type(bf),
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1102, in __iter__
+    for obj in self.queryset.iterator():
+AttributeError: type object 'ServerDeviceBrand' has no attribute 'iterator'
+2017-02-07 16:16:05,744 [Thread-2:10792] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /AddServerDevice/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Project\Python\COps\website\views.py", line 73, in AddServerDevice
+    'serverdevice_list': serverdevicelist})
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 217, in render
+    nodelist.append(node.render(context))
+  File "D:\Python27\lib\site-packages\django\template\debug.py", line 92, in render
+    output = force_text(output)
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 92, in force_text
+    s = six.text_type(s)
+  File "D:\Python27\lib\site-packages\django\utils\html.py", line 390, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 543, in __str__
+    return self.as_widget()
+  File "D:\Python27\lib\site-packages\django\forms\forms.py", line 599, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 513, in render
+    options = self.render_options(choices, [value])
+  File "D:\Python27\lib\site-packages\django\forms\widgets.py", line 539, in render_options
+    for option_value, option_label in chain(self.choices, choices):
+  File "D:\Python27\lib\site-packages\django\forms\models.py", line 1102, in __iter__
+    for obj in self.queryset.iterator():
+AttributeError: type object 'ServerDeviceBrand' has no attribute 'iterator'

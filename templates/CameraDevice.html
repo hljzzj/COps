@@ -14,7 +14,7 @@
         </div>
         <div class="panel-body" style="font-size: 18px">
             {% for item in device %}
-                IP地址：<a class="btn btn-primary">{{ item.cameraip }}</a>
+                IP地址：<a class="btn btn-primary" href="http://{{ item.cameraip }}"  target="_blank">{{ item.cameraip }}</a>
                 品牌：<a class="btn btn-primary">{{ item.brandid.name }}</a>
                 型号：<a class="btn btn-primary">{{ item.dtypeid.name }}</a>
                 设备类型：<a class="btn btn-primary">{{ item.ctypeid.name }}</a>

@@ -6,10 +6,10 @@
 
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h3 class="panel-title">添加摄像头</h3>
+            <h3 class="panel-title">添加服务器</h3>
         </div>
         <div class="panel-body">
-            <form action='/AddCameraDevice/' method="post" >
+            <form action='/AddServerDevice/' method="post" >
                 {% for forms in form %}
                     {{ forms.label}}:{{ forms }}
                     {{ forms.error }}
@@ -24,25 +24,23 @@
                 <tr>
 
                     <td>名称</td>
-                    <td>区域</td>
                     <td>IP</td>
                     <td>状态</td>
                     <td>分组</td>
-                    <td>方向</td>
-                    <td>类型</td>
-                    <td>运营商</td>
+                    <td>CPU</td>
+                    <td>磁盘</td>
+                    <td>内存</td>
                     <td>更新时间</td>
                     <td>创建时间</td>
                     <td>修改</td>
                     <td>删除</td>
 
                 </tr>
-                {% for item in cameradevice_list %}
+                {% for item in serverdevice_list %}
                     <tr>
 
-                        <td><a href="../CameraDevice/{{ item.id }}/" target="_blank">{{ item.name }}</a></td>
-                        <td>{{ item.regionid.name }}</td>
-                        <td>{{ item.cameraip}}</td>
+                        <td><a href="../ServerDevice/{{ item.id }}/" target="_blank">{{ item.name }}</a></td>
+                        <td>{{ item.serverip}}</td>
                         <td>
                             {% if item.statusid_id == 1 %}
                                 <span style="color: rgb(0, 174, 0); font-size: 18px;" class="glyphicon glyphicon-facetime-video"></span>
@@ -50,15 +48,15 @@
                                 <span style="color: rgb(255, 0, 0); font-size: 18px;" class="glyphicon glyphicon-facetime-video"></span>
                             {% endif %}
                         </td>
+                        <td>{{ item.notes}}</td>
                         <td>{{ item.groupid.name}}</td>
-                        <td>{{ item.directionid.name}}</td>
-                        <td>{{ item.ctypeid.name}}</td>
-
-                        <td>{{ item.telecomid.name }}</td>
+                        <td>{{ item.cpu}}</td>
+                        <td>{{ item.disk}}</td>
+                        <td>{{ item.memory }}</td>
                         <td style="font-size: 10px">{{ item.updatetime|date:"Y-m-d" }}<br>{{ item.updatetime|date:"H:i:s" }}</td>
                         <td>{{ item.addtime|date:"Y-m-d" }}</td>
-                        <td><a class="btn bt-sm btn-success radius" type="button" href="../UpdateCameraDevice/{{ item.id }}/" target="_blank">修改</a></td>
-                        <td><a class="btn bt-sm btn-danger radius" type="button" href="../DelCameraDevice/{{ item.id }}/" target="_blank" onclick="return confirm('你确认要删除设备吗？')">删除</a></td>
+                        <td><a class="btn bt-sm btn-success radius" type="button" href="../UpdateServerDevice/{{ item.id }}/" target="_blank">修改</a></td>
+                        <td><a class="btn bt-sm btn-danger radius" type="button" href="../DelServerDevice/{{ item.id }}/" target="_blank" onclick="return confirm('你确认要删除设备吗？')">删除</a></td>
                     </tr>
                 {% endfor %}
 

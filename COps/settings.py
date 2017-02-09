@@ -80,15 +80,14 @@ WSGI_APPLICATION = 'COps.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'cops',
+        'NAME':'COps',
         'USER':'COps',
         'PASSWORD':'Dzga@110',
         'HOST':'113.59.61.225',
-
-
+        'PORT':'3306',
     }
 }
-
+print DATABASES
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -113,7 +112,7 @@ STATICFILES_DIRS = (
 )
 
 #日志
-LOGGING = {
+"""LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,
     'formatters': {
@@ -189,3 +188,4 @@ LOGGING = {
         },
     }
 }
+"""

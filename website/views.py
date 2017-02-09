@@ -25,31 +25,53 @@ def CameraBadList(request):
     bad_cameralist = CameraDevice.objects.filter(statusid_id=2)
     return render_to_response('CameraBadList.html',{'bad_cameralist':bad_cameralist})
 
-def AddCamera(request):
-    assert isinstance(request,HttpRequest)
+def ServerBadList(request):
+    bad_serverlist = ServerDevice.objects.filter(statusid_id=2)
+    return render_to_response('ServerDevice.html',{'bad_serverlist':bad_serverlist})
+
+def AddServerDevice(request):
+    addserverdeviceform = AddServerDeviceForm()
+    serverdevicelist = ServerDevice.objects.all()
+    # print cameradevicelist
+    # print addcameradevice
     if request.method == 'POST':
-        form = AddCameraForm(request.POST)
+        form = AddServerDeviceForm(request.POST)
         if form.is_valid():
-            id = form.data['id']
-            if id:
-                model = CameraDevice.objects.get(id=id)
+            pid = request.POST.get('pid', None)
+            name = request.POST.get('name')
+            group = request.POST.get('group')
+            serverip = request.POST.get('serverip')
+            brand = request.POST.get('brand')
+            dtype = request.POST.get('dtype')
+            username = request.POST.get('username', None)
+            password = request.POST.get('password', None)
+            cpu = request.POST.get('cpu', None)
+            disk = request.POST.get('disk', None)
+            memory = request.POST.get('memory', None)
+            result = ServerDevice.objects.filter(serverip=serverip).count()
+            result1 = ServerDevice.objects.filter(pid=pid).count()
+            if result == 0 and result1 == 0:
+                ServerDevice.objects.create(pid=pid, name=name, groupid_id=group,serverip=serverip, username=username,
+                                            password=password,brandid_id=brand,dtype=dtype,cpu=cpu,disk=disk,memory=memory)
+                return render_to_response('AddServerDevice.html', {'form': addserverdeviceform,
+                                                                   'serverdevice_list': serverdevicelist,
+                                                                   'status': '添加成功'})
+            elif result != 0:
+                return render_to_response('AddServerDevice.html', {'form': addserverdeviceform,
+                                                                   'serverdevice_list': serverdevicelist,
+                                                                   'status': 'IP已存在'})
             else:
-                model = CameraDevice()
-            model.name = form.cleaned_data['name']
-            model.save()
-            id = 0
-    else:
-        if id:
-            print id
-            form = AddCameraForm(instance = CameraDevice.objects.get(id=id))
+                return render_to_response('AddServerDevice.html', {'form': addserverdeviceform,
+                                                                   'serverdevice_list': serverdevicelist,
+                                                                   'status': 'ID已存在'})
         else:
-            form = AddCameraForm()
-    return render(request,'AddCamera.html',{
-        'title': '变更记录',
-        'form': form,  # 获得表单对象
-        'data': CameraDevice.objects.all(),
-        'id': id,
-    })
+            print form
+            return render_to_response('AddServerDevice.html', {'form': addserverdeviceform,
+                                                               'serverdevice_list': serverdevicelist,
+                                                               'status': '验证错误'})
+    else:
+        return render_to_response('AddServerDevice.html', {'form': addserverdeviceform,
+                                                           'serverdevice_list': serverdevicelist})
 
 def AddBasicInfo(request):
     devicestatusform = AddDeviceStatusForm()
@@ -467,6 +489,19 @@ def CameraDeviceID(request,cameraID):
 
     return render_to_response('CameraDevice.html',{'device':camera,'st':st,'sttext':sttext})
 
+def ServerDeviceID(request,serverID):
+    server = ServerDevice.objects.filter(id=serverID)
+    for item in server: # 此处写法不对，应该有其它方法，待修改。
+        print item.statusid_id
+    if item.statusid_id == 1:
+        st = 'rgb(0, 174, 0)'
+        sttext = '正常'
+    else:
+        st = 'rgb(255, 0, 0)'
+        sttext = '故障'
+
+    return render_to_response('ServerDevice.html',{'device':server,'st':st,'sttext':sttext})
+
 def UpdateCameraDevice(request,cameraID):
     camera = get_object_or_404(CameraDevice,pk = int(id))
     if request.method == "POST":
@@ -483,7 +518,13 @@ def DelCameraDevice(request,cameraID):
     else:
         return render_to_response('Status.html',{'updatestatus':'删除失败'})
 
-
+def DelServerDevice(request,serverID):
+    ServerDevice.objects.filter(id=serverID).delete()
+    ok = ServerDevice.objects.filter(id=serverID).count()
+    if ok == 0:
+        return render_to_response('Status.html',{'updatestatus':'删除成功'})
+    else:
+        return render_to_response('Status.html',{'updatestatus':'删除失败'})
 
 
 
@@ -537,56 +578,7 @@ def AddCameraDevice(request):
     else:
         return render_to_response('AddCameraDevice.html', {'form': addcameradevice,
                                                            'cameradevice_list':cameradevicelist})
-def AddServerDevice(request):
-    addcameradevice = AddCameraDeviceForm()
-    cameradevicelist = CameraDevice.objects.all()
-    # print cameradevicelist
-    # print addcameradevice
-    if request.method == 'POST':
-        form = AddCameraDeviceForm(request.POST)
-        if form.is_valid():
-            pid = request.POST.get('pid',None)
-            name = request.POST.get('name')
-            group = request.POST.get('group')
-            region = request.POST.get('region')
-            direction = request.POST.get('direction')
-            ctype = request.POST.get('ctype')
-            ip = request.POST.get('ip')
-            brand =request.POST.get('brand')
-            dtype = request.POST.get('dtype')
-            username = request.POST.get('username',None)
-            password = request.POST.get('password',None)
-            gpslon = request.POST.get('gpslon',None)
-            gpswei = request.POST.get('gpswei',None)
-            telecom = request.POST.get('telecom')
-            nvrdevice = request.POST.get('nvrdevice')
-            print pid,name,group,region,direction,ctype,ip,username,password,gpslon,gpswei,brand,dtype
-            result = CameraDevice.objects.filter(ip=ip).count()
-            result1 = CameraDevice.objects.filter(pid=pid).count()
-            if result == 0 and result1 == 0:
-                CameraDevice.objects.create(pid=pid,name=name,groupid_id=group,regionid_id=region,
-                                           directionid_id=direction,ctypeid_id=ctype,ip=ip,username=username,
-                                           password=password,gpslon=gpslon,gpswei=gpswei,brandid_id=brand,
-                                           dtypeid_id=dtype,telecomid_id=telecom,nvrdeviceid_id=nvrdevice)
-                return render_to_response('AddCameraDevice.html',{'form':addcameradevice,
-                                                                  'cameradevice_list':cameradevicelist,
-                                                                  'status':'添加成功'})
-            elif result != 0:
-                return render_to_response('AddCameraDevice.html', {'form': addcameradevice,
-                                                                   'cameradevice_list':cameradevicelist,
-                                                                   'status': 'IP已存在'})
-            else:
-                return render_to_response('AddCameraDevice.html',{'form':addcameradevice,
-                                                                  'cameradevice_list':cameradevicelist,
-                                                                  'status':'ID已存在'})
-        else:
-            print form
-            return render_to_response('AddCameraDevice.html', {'form': addcameradevice,
-                                                               'cameradevice_list':cameradevicelist,
-                                                               'status':'验证错误'})
-    else:
-        return render_to_response('AddCameraDevice.html', {'form': addcameradevice,
-                                                           'cameradevice_list':cameradevicelist})
+
 
 def UpLoad(request):
     if request.method == 'POST':
@@ -604,3 +596,36 @@ def handle_uploaded_file(f):
 
 def SearchDevice(request):
     searchdeviceform = SearchDeviceFrom()
+
+def DefaultBasicData(request):   # 初始化基础信息数据
+    DeviceStatus.objects.create(name=u'正常')
+    DeviceStatus.objects.create(name=u'故障')
+    CameraDirection.objects.create(name=u'东向西')
+    CameraDirection.objects.create(name=u'西向东')
+    CameraDirection.objects.create(name=u'南向北')
+    CameraDirection.objects.create(name=u'北向南')
+    CameraDirection.objects.create(name=u'全景')
+    CameraType.objects.create(name=u'球机')
+    CameraType.objects.create(name=u'枪机')
+    DeviceBrand.objects.create(name=u'海康')
+    DeviceGroup.objects.create(name=u'那大道路监控系统')
+    DeviceGroup.objects.create(name=u'马井道路监控系统')
+    DeviceGroup.objects.create(name=u'儋州道路监控系统')
+    DeviceType.objects.create(name=u'DS-2DF1-772',brandid_id=1)
+    DeviceType.objects.create(name=u'DS-2DF1-774D', brandid_id=1)
+    DeviceType.objects.create(name=u'DS-2DF1-783D', brandid_id=1)
+    DeviceType.objects.create(name=u'DS-2DF1-67A', brandid_id=1)
+    DeviceType.objects.create(name=u'DS-2DF1-968A', brandid_id=1)
+    DeviceType.objects.create(name=u'DS2D2216MF', brandid_id=1)
+    DeviceType.objects.create(name=u'DS-2CD876BF', brandid_id=1)
+    DeviceType.objects.create(name=u'DS-2CC173', brandid_id=1)
+    DeviceType.objects.create(name=u'DS-2DF7284-A', brandid_id=1)
+    DeviceType.objects.create(name=u'DS-2DF7286-A', brandid_id=1)
+    DeviceType.objects.create(name=u'DS-2CD6233F', brandid_id=1)
+    DeviceType.objects.create(name=u'DS-2CD4026FWD-A', brandid_id=1)
+    DeviceType.objects.create(name=u'DS-2CD9361-S', brandid_id=1)
+    Telecom.objects.create(name=u'电信')
+    Telecom.objects.create(name=u'联通')
+    Telecom.objects.create(name=u'移动')
+    ServerDeviceBrand.objects.create(name=u'DELL')
+
