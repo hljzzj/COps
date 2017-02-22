@@ -20,7 +20,7 @@ WORD = ctypes.c_ushort
 CHARP = ctypes.c_char_p
 VOIDP = ctypes.c_void_p
 HWND = ctypes.c_uint
-
+print bool
 init = HC.NET_DVR_Init()
 print init
 #if __name__ == "__main__":
