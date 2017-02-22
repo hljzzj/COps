@@ -14,15 +14,16 @@
         </div>
         <div class="panel-body" style="font-size: 18px">
             {% for item in device %}
-                IP地址：<a class="btn btn-primary">{{ item.cameraip }}</a>
+                IP地址：<a class="btn btn-primary" href="http://{{ item.cameraip }}"  target="_blank">{{ item.cameraip }}</a>
                 品牌：<a class="btn btn-primary">{{ item.brandid.name }}</a>
                 型号：<a class="btn btn-primary">{{ item.dtypeid.name }}</a>
                 设备类型：<a class="btn btn-primary">{{ item.ctypeid.name }}</a>
-                方向：<a class="btn btn-primary">{{ item.directionid }}</a>
-                位置：<a class="btn btn-primary">东经{{ item.gpslon }}北纬{{ item.gpswei }}</a>
-                供电：<a class="btn btn-primary">{{ item.powersupply }}</a>
+                方向：<a class="btn btn-primary">{{ item.directionid.name }}</a>
+                位置：<a class="btn btn-primary">东经{{ item.gpslon }}北纬{{ item.gpswei}}</a>
+                供电方式：<a class="btn btn-primary">{{ item.powersupplyid.name }}</a>
+                供电标识：<a class="btn btn-primary">{{ item.powerid.name }}</a>
                 运营商：<a class="btn btn-primary">{{ item.telecomid.name }}</a><br>
-                后端设备：<a class="btn btn-primary">{{ item.nvrdeviceid.name }}</a>
+                服务器：<a class="btn btn-primary">{{ item.nvrdeviceid.name }}</a>
                 设备分组:<a class="btn btn-primary">{{ item.groupid.name }}</a>
             {% endfor %}
         </div>
@@ -42,8 +43,10 @@
         <div class="panel-heading">
         <h3 class="panel-title" >设备抓图</h3>
         </div>
-        <div class="panel-body" style="font-size: 18px">
-
+        <div class="panel-body" style="font-size: 18px" align = "center">
+	{% for item in device %}
+            <a href="/static/CToJpeg/image{{ item.cameraip }}.jpg" target="_blank"><img src="/static/CToJpeg/image{{ item.cameraip }}.jpg" height="60%" width="60%"></a>
+	{% endfor %}
         </div>
     </div>
 </div>
@@ -51,3 +54,4 @@
 
 
 {% endblock %}
+

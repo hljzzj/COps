@@ -22,7 +22,8 @@ class Migration(migrations.Migration):
                 ('gpslon', models.CharField(max_length=18, null=True, verbose_name=b'\xe7\xbb\x8f\xe5\xba\xa6')),
                 ('gpswei', models.CharField(max_length=18, null=True, verbose_name=b'\xe7\xba\xac\xe5\xba\xa6')),
                 ('updatetime', models.DateTimeField(auto_now=True, verbose_name=b'\xe4\xb8\xbb\xe6\x9c\xba\xe6\x9b\xb4\xe6\x96\xb0\xe6\x97\xb6\xe9\x97\xb4', null=True)),
-                ('addtime', models.DateTimeField(auto_now_add=True, verbose_name=b'\xe4\xb8\xbb\xe6\x9c\xba\xe6\xb7\xbb\xe5\x8a\xa0\xe6\x97\xb6\xe9\x97\xb4')),
+                ('addtime', models.DateTimeField(auto_now_add=True, verbose_name=b'\xe4\xb8\xbb\xe6\x9c\xba\xe6\xb7\xbb\xe5\x8a\xa0\xe6\x97\xb6\xe9\x97\xb4', null=True)),
+                ('powerid', models.CharField(max_length=255, null=True, verbose_name=b'\xe4\xbe\x9b\xe7\x94\xb5\xe6\xa0\x87\xe8\xaf\x86')),
             ],
         ),
         migrations.CreateModel(
@@ -44,6 +45,14 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=32, verbose_name=b'\xe8\xae\xbe\xe5\xa4\x87\xe5\x93\x81\xe7\x89\x8c')),
+            ],
+        ),
+        migrations.CreateModel(
+            name='DeviceDayRecord',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('updatetime', models.DateTimeField(auto_now=True, verbose_name=b'\xe6\x9b\xb4\xe6\x96\xb0\xe6\x97\xb6\xe9\x97\xb4', null=True)),
+                ('deviceid', models.ForeignKey(verbose_name=b'\xe8\xae\xbe\xe5\xa4\x87ID', to='website.CameraDevice')),
             ],
         ),
         migrations.CreateModel(
@@ -75,11 +84,27 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
+            name='DeviceTimeRecord',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('updatetime', models.DateTimeField(auto_now=True, verbose_name=b'\xe6\x9b\xb4\xe6\x96\xb0\xe6\x97\xb6\xe9\x97\xb4', null=True)),
+                ('devideid', models.ForeignKey(verbose_name=b'\xe8\xae\xbe\xe5\xa4\x87ID', to='website.CameraDevice')),
+                ('statusid', models.ForeignKey(verbose_name=b'\xe7\x8a\xb6\xe6\x80\x81ID', to='website.DeviceStatus')),
+            ],
+        ),
+        migrations.CreateModel(
             name='DeviceType',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=32, verbose_name=b'\xe8\xae\xbe\xe5\xa4\x87\xe5\x9e\x8b\xe5\x8f\xb7')),
                 ('brandid', models.ForeignKey(verbose_name=b'\xe5\x85\xb3\xe8\x81\x94\xe8\xae\xbe\xe5\xa4\x87\xe5\x93\x81\xe7\x89\x8cID', to='website.DeviceBrand')),
+            ],
+        ),
+        migrations.CreateModel(
+            name='DiskCapacity',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=32, verbose_name=b'\xe7\xa3\x81\xe7\x9b\x98\xe5\xae\xb9\xe9\x87\x8f')),
             ],
         ),
         migrations.CreateModel(
@@ -128,13 +153,28 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='ServerHostDevice',
+            name='ServerDevice',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('pid', models.CharField(max_length=32, null=True, verbose_name=b'\xe6\x9c\x8d\xe5\x8a\xa1\xe5\x99\xa8\xe7\xbc\x96\xe5\x8f\xb7')),
                 ('name', models.CharField(max_length=32, verbose_name=b'\xe6\x9c\x8d\xe5\x8a\xa1\xe5\x99\xa8\xe5\x90\x8d\xe7\xa7\xb0')),
-                ('ip', models.GenericIPAddressField(protocol=b'ipv4', verbose_name=b'\xe6\x9c\x8d\xe5\x8a\xa1\xe5\x99\xa8IP')),
+                ('serverip', models.GenericIPAddressField(protocol=b'ipv4', verbose_name=b'\xe6\x9c\x8d\xe5\x8a\xa1\xe5\x99\xa8IP')),
                 ('username', models.CharField(max_length=32, verbose_name=b'\xe6\x9c\x8d\xe5\x8a\xa1\xe5\x99\xa8\xe5\xb8\x90\xe5\x8f\xb7')),
                 ('password', models.CharField(max_length=32, verbose_name=b'\xe6\x9c\x8d\xe5\x8a\xa1\xe5\x99\xa8\xe5\xaf\x86\xe7\xa0\x81')),
+                ('dtype', models.CharField(max_length=128, verbose_name=b'\xe8\xae\xbe\xe5\xa4\x87\xe5\x9e\x8b\xe5\x8f\xb7')),
+                ('cpu', models.CharField(max_length=32, null=True, verbose_name=b'CPU')),
+                ('disk', models.CharField(max_length=32, null=True, verbose_name=b'\xe7\xa3\x81\xe7\x9b\x98')),
+                ('memory', models.CharField(max_length=32, null=True, verbose_name=b'\xe5\x86\x85\xe5\xad\x98')),
+                ('updatetime', models.DateTimeField(auto_now=True, verbose_name=b'\xe4\xb8\xbb\xe6\x9c\xba\xe6\x9b\xb4\xe6\x96\xb0\xe6\x97\xb6\xe9\x97\xb4', null=True)),
+                ('addtime', models.DateTimeField(auto_now_add=True, verbose_name=b'\xe4\xb8\xbb\xe6\x9c\xba\xe6\xb7\xbb\xe5\x8a\xa0\xe6\x97\xb6\xe9\x97\xb4', null=True)),
+                ('notes', models.CharField(max_length=255, null=True, verbose_name=b'\xe5\xa4\x87\xe6\xb3\xa8')),
+            ],
+        ),
+        migrations.CreateModel(
+            name='ServerDeviceBrand',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=128, verbose_name=b'\xe6\x9c\x8d\xe5\x8a\xa1\xe5\x99\xa8\xe5\x93\x81\xe7\x89\x8c')),
             ],
         ),
         migrations.CreateModel(
@@ -143,6 +183,26 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=32, verbose_name=b'\xe8\xbf\x90\xe8\x90\xa5\xe5\x95\x86')),
             ],
+        ),
+        migrations.AddField(
+            model_name='serverdevice',
+            name='brandid',
+            field=models.ForeignKey(verbose_name=b'\xe8\xae\xbe\xe5\xa4\x87\xe5\x93\x81\xe7\x89\x8c', to='website.ServerDeviceBrand'),
+        ),
+        migrations.AddField(
+            model_name='serverdevice',
+            name='groupid',
+            field=models.ForeignKey(verbose_name=b'\xe8\xae\xbe\xe5\xa4\x87\xe5\x88\x86\xe7\xbb\x84', to='website.DeviceGroup'),
+        ),
+        migrations.AddField(
+            model_name='serverdevice',
+            name='statusid',
+            field=models.ForeignKey(verbose_name=b'\xe8\xae\xbe\xe5\xa4\x87\xe7\x8a\xb6\xe6\x80\x81', to='website.DeviceStatus', null=True),
+        ),
+        migrations.AddField(
+            model_name='devicedayrecord',
+            name='statusid',
+            field=models.ForeignKey(verbose_name=b'\xe7\x8a\xb6\xe6\x80\x81ID', to='website.DeviceStatus'),
         ),
         migrations.AddField(
             model_name='cameradevice',
@@ -181,18 +241,13 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='cameradevice',
-            name='powerid',
-            field=models.ForeignKey(verbose_name=b'\xe4\xbe\x9b\xe7\x94\xb5\xe6\xa0\x87\xe8\xaf\x86', to='website.PowerID', null=True),
-        ),
-        migrations.AddField(
-            model_name='cameradevice',
             name='powersupplyid',
             field=models.ForeignKey(verbose_name=b'\xe4\xbe\x9b\xe7\x94\xb5\xe6\x96\xb9\xe5\xbc\x8f', to='website.PowerSupply', null=True),
         ),
         migrations.AddField(
             model_name='cameradevice',
             name='regionid',
-            field=models.ForeignKey(verbose_name=b'\xe6\x91\x84\xe5\x83\x8f\xe5\xa4\xb4\xe5\x8c\xba\xe5\x9f\x9f\xe5\x88\x92\xe5\x88\x86', to='website.DeviceRegion'),
+            field=models.ForeignKey(verbose_name=b'\xe6\x91\x84\xe5\x83\x8f\xe5\xa4\xb4\xe5\x8c\xba\xe5\x9f\x9f\xe5\x88\x92\xe5\x88\x86', to='website.DeviceRegion', null=True),
         ),
         migrations.AddField(
             model_name='cameradevice',

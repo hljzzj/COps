@@ -20,12 +20,15 @@ from website.views import *
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$',Index),
-    url(r'^AddCamera/$',AddCamera),
+    url(r'^AddServerDevice/$',AddServerDevice),
     url(r'^CameraBadList/$',CameraBadList),
     url(r'^AddCameraDevice/$',AddCameraDevice),
     url(r'^AddBasicInfo/$',AddBasicInfo),
     url(r'^UpdateCameraDevice/(?P<cameraID>\d*)/$',UpdateCameraDevice),
     url(r'^DelCameraDevice/(?P<cameraID>\d*)/$',DelCameraDevice),
+    url(r'^DelServerDevice/(?P<serverID>\d*)/$',DelServerDevice),
     url(r'^CameraDevice/(?P<cameraID>\d*)/$',CameraDeviceID),
+    url(r'^ServerDevice/(?P<serverID>\d*)/$',ServerDeviceID),
     url(r'^UpLoad/$',UpLoad),
+    url(r'^DefaultBasicData/$',DefaultBasicData),
 ]
