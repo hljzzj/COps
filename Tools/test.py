@@ -1,6 +1,6 @@
 from __future__ import print_function
 import ctypes,os,threading,time
-from ctypes.wintypes import DWORD
+from ctypes import *
 from datetime import datetime
 
 __author__ = 'gmuralit'
@@ -8,7 +8,7 @@ __author__ = 'gmuralit'
 ####################################################
 ### Load the dll                                 ###
 ####################################################
-HC = ctypes.WinDLL('HCNetSDK.dll')
+HC = ctypes.cdll.LoadLibrary('lib/libhcnetsdk.so')
 
 ####################################################
 ### Global variables                             ###
@@ -32,7 +32,7 @@ CHARP = ctypes.c_char_p
 VOIDP = ctypes.c_void_p
 HWND = ctypes.c_uint
 
-CMPFUNC = ctypes.WINFUNCTYPE(None,LONG,DWORD,BYTE,DWORD,VOIDP)
+#CMPFUNC = ctypes.WINFUNCTYPE(None,LONG,DWORD,BYTE,DWORD,VOIDP)
 
 ####################################################
 ### Structures to be used in the library         ###
